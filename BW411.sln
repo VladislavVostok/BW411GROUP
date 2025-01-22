@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FunctionLecture", "Function
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PancakeSort", "PancakeSort\PancakeSort.vcxproj", "{11F4E9F2-BC54-422D-8FC4-DE05C88BDA61}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinerSearch", "LinerSearch\LinerSearch.vcxproj", "{7843C037-F0B3-4D4D-AB4F-B4F0628946AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{11F4E9F2-BC54-422D-8FC4-DE05C88BDA61}.Release|x64.Build.0 = Release|x64
 		{11F4E9F2-BC54-422D-8FC4-DE05C88BDA61}.Release|x86.ActiveCfg = Release|Win32
 		{11F4E9F2-BC54-422D-8FC4-DE05C88BDA61}.Release|x86.Build.0 = Release|Win32
+		{7843C037-F0B3-4D4D-AB4F-B4F0628946AE}.Debug|x64.ActiveCfg = Debug|x64
+		{7843C037-F0B3-4D4D-AB4F-B4F0628946AE}.Debug|x64.Build.0 = Debug|x64
+		{7843C037-F0B3-4D4D-AB4F-B4F0628946AE}.Debug|x86.ActiveCfg = Debug|Win32
+		{7843C037-F0B3-4D4D-AB4F-B4F0628946AE}.Debug|x86.Build.0 = Debug|Win32
+		{7843C037-F0B3-4D4D-AB4F-B4F0628946AE}.Release|x64.ActiveCfg = Release|x64
+		{7843C037-F0B3-4D4D-AB4F-B4F0628946AE}.Release|x64.Build.0 = Release|x64
+		{7843C037-F0B3-4D4D-AB4F-B4F0628946AE}.Release|x86.ActiveCfg = Release|Win32
+		{7843C037-F0B3-4D4D-AB4F-B4F0628946AE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
