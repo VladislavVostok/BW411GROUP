@@ -16,14 +16,6 @@ void ShowMatrix(int matr[][3], int rows, int cols);
 
 int A = 10;
 
-
-
-template <typename G, typename T, typename Hi> G Abs(G N, T E, Hi H)
-{
-    return N + E + H;
-}
-
-
 int main()
 {
 
@@ -63,19 +55,8 @@ int main()
 
 
 
-    // Шаблонные функции
-
-    cout << "Используем шаблонную фун. для типа int: " << Abs(-5, 5.34, 5.45f);
-
     return 0;
 }
-
-
-//template <typename T> T Abs(T N)
-//{
-//    return N < 0 ? -N : N;
-//}
-
 
 
 // отображение массива
