@@ -8,6 +8,8 @@
 using namespace std;
 
 
+
+
 void randomPush(int* A, int &N) {
 	for (int i = 0; i < N; i++) {
 		*(A + i) = rand() % 10 + 1;
@@ -38,6 +40,9 @@ int* mergeArr(int* A, int& N, int* B, int& M) {
 }
 
 
+
+
+
 // Написать функцию, которая получает указатель на массив 
 // и его размер, и возвращает сумму и произведение его 
 // элементов в двух параметрах-указателях.
@@ -50,9 +55,26 @@ void calcSumProd(int* pArr, int& size, int* sum, int* prod) {
 }
 
 
+//Задание 2. Написать функцию, которая получает указатель
+//на массив и его размер, и возвращает количество отрица -
+//тельных, положительных и нулевых элементов массива.
+
+void count_negative_posit_zero_item(int* pArr, int& size, int* count_neg, int* count_pos, int* count_zero) {
+
+	for (int i = 0; i < size; i++) {
+		if (*(pArr + i) > 0)
+			(*count_pos)++;
+		else if (*(pArr + i) < 0)
+			*count_neg += 1;
+		else
+			*count_zero += 1;
+	}
+}
+
 
 int main() {
 
+	setlocale(LC_ALL, "");
 	int N, M;
 	cout << "Введите количество элементов массива A[N]";
 	cin >> N;
@@ -97,6 +119,21 @@ int main() {
 	cout << *sum << " " << *prod << endl;
 
 	delete[] Z;
+
+	int size1 = 14;
+
+	int* count_neg = new int(0);
+	int* count_pos = new int(0);;
+	int* count_zero = new int(0);;
+	int* pArr = new int[size1];
+	randomPush(pArr, size1);
+	printArr(pArr, size1);
+	count_negative_posit_zero_item(pArr, size1, count_neg, count_pos, count_zero);
+
+	delete count_neg;
+	delete count_pos;
+	delete count_zero;
+	delete[] pArr;
 
 	return 0;
 }
