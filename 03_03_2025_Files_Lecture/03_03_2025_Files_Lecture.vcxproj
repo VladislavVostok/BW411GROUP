@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{11a19bce-d7ac-4bf8-ba0b-8defbc1902eb}</ProjectGuid>
-    <RootNamespace>BlockChain</RootNamespace>
+    <ProjectGuid>{b2b3f5ea-3c85-45c1-b7cc-15e4f28029e1}</ProjectGuid>
+    <RootNamespace>My03032025FilesLecture</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,17 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Block.cpp" />
-    <ClCompile Include="BlockChain.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SHA256.cpp" />
-    <ClCompile Include="Transaction.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Block.hpp" />
-    <ClInclude Include="BlockChain.hpp" />
-    <ClInclude Include="SHA256.hpp" />
-    <ClInclude Include="Transaction.hpp" />
+    <ClCompile Include="03_03_2025_Files_Lecture.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

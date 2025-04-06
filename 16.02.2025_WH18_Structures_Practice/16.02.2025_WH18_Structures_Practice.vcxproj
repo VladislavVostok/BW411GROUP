@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{11a19bce-d7ac-4bf8-ba0b-8defbc1902eb}</ProjectGuid>
-    <RootNamespace>BlockChain</RootNamespace>
+    <ProjectGuid>{ccdb4d6e-7511-4ef0-838d-575cf19f6b69}</ProjectGuid>
+    <RootNamespace>My16022025WH18StructuresPractice</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,17 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Block.cpp" />
-    <ClCompile Include="BlockChain.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SHA256.cpp" />
-    <ClCompile Include="Transaction.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Block.hpp" />
-    <ClInclude Include="BlockChain.hpp" />
-    <ClInclude Include="SHA256.hpp" />
-    <ClInclude Include="Transaction.hpp" />
+    <ClCompile Include="16.02.2025_WH18_Structures_Practice.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

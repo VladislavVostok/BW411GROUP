@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{11a19bce-d7ac-4bf8-ba0b-8defbc1902eb}</ProjectGuid>
-    <RootNamespace>BlockChain</RootNamespace>
+    <ProjectGuid>{8e9ac0ac-232a-44d6-860e-7ec864d1f43f}</ProjectGuid>
+    <RootNamespace>My19032025FPHW221Files</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,17 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Block.cpp" />
-    <ClCompile Include="BlockChain.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SHA256.cpp" />
-    <ClCompile Include="Transaction.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Block.hpp" />
-    <ClInclude Include="BlockChain.hpp" />
-    <ClInclude Include="SHA256.hpp" />
-    <ClInclude Include="Transaction.hpp" />
+    <ClCompile Include="19_03_2025_FP_HW_22_1_Files.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
