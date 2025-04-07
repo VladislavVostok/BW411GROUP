@@ -6,20 +6,27 @@
 int main()
 {
 
-    BlockChain myBlockChain; // Создаём блокчейн
-    cout << "Mining block 1..." << endl;
-    myBlockChain.addBlock(Block("Transaction data 1", ""));    
-    
-    cout << "Mining block 2..." << endl;
-    myBlockChain.addBlock(Block("Transaction data 2", ""));
-    
-    cout << "Mining block 3..." << endl;
-    myBlockChain.addBlock(Block("Transaction data 2", ""));
+    BlockChain blockchain; // Создаём блокчейн
+    blockchain.addTransaction(Transaction("miner", "alice", 100));
+    blockchain.addTransaction(Transaction("alice", "bob", 50));
+    blockchain.addTransaction(Transaction("bob", "miner", 25));
 
-    cout << "Blockchain contents: " << endl;
-    myBlockChain.printChain();
+    cout << endl << "Mining block with pending transactions..." << endl;
+    blockchain.minePendingTransactions("miner");
 
-    cout << "Is blockchain valid? " << (myBlockChain.isChainValid() ? "Yes" : "No") << endl;
+    cout << endl << "Blockchain:" << endl;
+    blockchain.printChain();
+
+    cout << endl << "Blances:" << endl;
+    cout << "miner -> " << blockchain.getBalance("miner") << endl;
+    cout << "alice -> " << blockchain.getBalance("alice") << endl;
+    cout << "bob -> " << blockchain.getBalance("bob") << endl;
     
+    
+    
+    cout << "Is blockchain valid? " << (blockchain.isChainValid() ? "Yes" : "No");
+
+    
+
     return 0;
 }

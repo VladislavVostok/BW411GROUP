@@ -1,14 +1,14 @@
 #include "Block.hpp"
 #include "SHA256.hpp"
 
-Block::Block(string data, string previousHash) : data(data), previousHash(previousHash), timestamp(time(nullptr)), nonce(0) {
+Block::Block(vector<Transaction> transactions, string previousHash) : transactions(transactions), previousHash(previousHash), timestamp(time(nullptr)), nonce(0) {
 	hash = calculateHash();
-
+	merkeleRoot = calculateMerkeleRoot();
 }
 
 string Block::calculateHash() const {
 	stringstream ss;
-	ss << previousHash << timestamp << data << nonce;
+	ss << previousHash << merkeleRoot << timestamp  << nonce;
 	return SHA256::hash(ss.str());
 }
 
@@ -20,4 +20,29 @@ void Block::mineBlock(int difficulty) {
 		hash = calculateHash(); // обновляем хэш после изменения nonce
 	}
 	cout << "Block mined: " << hash << endl;
+}
+
+string Block::calculateMerkeleRoot() const {
+	if (transactions.empty()) return SHA256::hash("");
+
+	vector<string> tree;
+
+	// Хэшируем все транзакции
+	for (const auto& tx : transactions) {
+		tree.push_back(tx.hash);
+	}
+
+	// Построение дерева меркла
+	size_t levelOffset = 0;
+
+	for (size_t levelSize = transactions.size(); levelSize > 1; levelSize = (levelSize + 1) / 2) {
+
+		for (size_t left = 0; left < levelSize; left += 2) {
+			size_t right = min(left + 1, levelSize - 1);
+			tree.push_back(SHA256::hash(tree[levelOffset + left] + tree[levelOffset + right]));
+		}
+		levelOffset += levelSize;
+	}
+
+	return tree.empty() ? "" : tree.back();
 }

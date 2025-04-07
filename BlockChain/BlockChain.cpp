@@ -1,11 +1,36 @@
 #include "BlockChain.hpp"
 
 BlockChain::BlockChain() : difficulty(4) {
-	chain.push_back(BlockChain::createGenesisBlock());
+	Transaction genesisTx("system", "miner", 1000);
+	pendingTransactions.push_back(genesisTx);
+	createBlock(pendingTransactions);
+	pendingTransactions.clear();
 }
 
-Block BlockChain::createGenesisBlock() {
-	return Block("Genesis Block", "0");
+void BlockChain::createBlock(vector<Transaction> transactions) {
+	string previousHash = chain.empty() ? "0" : chain.back().hash;
+	chain.emplace_back(transactions, previousHash);
+	chain.back().mineBlock(difficulty);
+
+	for (const auto& tx : transactions) {
+		balances[tx.sender] -= tx.amount;
+		balances[tx.receiver] += tx.amount;
+	}
+}
+
+// 
+void BlockChain::addTransaction(Transaction tx) {
+	if (tx.sender != "system" && getBalance(tx.sender) < tx.amount) {
+		cout << "Transaction failed: insufficien funs!" << endl;
+		return;
+	}
+		
+	pendingTransactions.push_back(tx);
+	cout << "Transaction added to pending pool!" << endl;
+}
+
+double BlockChain::getBalance(string address) {
+	return balances.count(address) ? balances.at(address) : 0.0;
 }
 
 Block BlockChain::getLastestBlock() const {
@@ -21,6 +46,14 @@ void BlockChain::addBlock(Block newBlock) {
 
 	// Добавляем новый блок в цепочку
 	chain.push_back(newBlock);
+}
+
+void BlockChain::minePendingTransactions(string minerAddress) {
+	Transaction rewardTx("system", minerAddress, 10);
+	pendingTransactions.push_back(rewardTx);
+
+	createBlock(pendingTransactions);
+	pendingTransactions.clear();
 }
 
 bool BlockChain::isChainValid() const {
@@ -41,16 +74,33 @@ bool BlockChain::isChainValid() const {
 			return false;
 		}
 
+		if (current.merkeleRoot != current.calculateMerkeleRoot()) {
+			cout << "Invalid Markele root for block " << i << endl;
+			return false;
+		}
+
 		return true;
 	}
 }
 
 void BlockChain::printChain() const {
-	for (const Block& block : chain) {
-		cout << "------------------------" << endl;
+
+	for (size_t i = 0; i < chain.size(); i++) {
+
+
+		const Block& block = chain[i];
+		cout << "Block: " << i << endl;
+		cout << "Prev. hash: " << block.previousHash << endl;
+		cout << "Merkle root:  " << block.merkeleRoot << endl;
+		cout << "Hash : " << block.hash << endl;
 		cout << "Timestamp: " << block.timestamp << endl;
-		cout << "Data: " << block.data << endl;
-		cout << "Hash: " << block.hash << endl;
-		cout << "PreviousHash: " << block.previousHash << endl;
+		cout << "Nonce: " << block.nonce << endl;
+		cout << "Transactions(" << block.transactions.size() << "):" << endl;
+
+		for (const auto& tx : block.transactions) {
+			tx.printTrasaction();
+		}
+
+		cout << string(40, '-') << endl;
 	}
 }
