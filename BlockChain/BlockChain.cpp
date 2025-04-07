@@ -13,14 +13,14 @@ void BlockChain::createBlock(vector<Transaction> transactions) {
 	chain.back().mineBlock(difficulty);
 
 	for (const auto& tx : transactions) {
-		balances[tx.sender] -= tx.amount;
-		balances[tx.receiver] += tx.amount;
+		balances[tx.getSender()] -= tx.getAmount();
+		balances[tx.getReceiver()] += tx.getAmount();
 	}
 }
 
 // 
 void BlockChain::addTransaction(Transaction tx) {
-	if (tx.sender != "system" && getBalance(tx.sender) < tx.amount) {
+	if (tx.getSender() != "system" && getBalance(tx.getSender()) < tx.getAmount()) {
 		cout << "Transaction failed: insufficien funs!" << endl;
 		return;
 	}
@@ -103,4 +103,5 @@ void BlockChain::printChain() const {
 
 		cout << string(40, '-') << endl;
 	}
+
 }

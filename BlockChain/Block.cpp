@@ -29,7 +29,7 @@ string Block::calculateMerkeleRoot() const {
 
 	// Хэшируем все транзакции
 	for (const auto& tx : transactions) {
-		tree.push_back(tx.hash);
+		tree.push_back(tx.getHashTx());
 	}
 
 	// Построение дерева меркла
