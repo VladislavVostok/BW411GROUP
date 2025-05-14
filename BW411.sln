@@ -77,6 +77,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "28.04.2025_MultyThreading",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "30.04.2025_MultiThreadingPractice", "30.04.2025_MultiThreadingPractice\30.04.2025_MultiThreadingPractice.vcxproj", "{FB4362E1-FBF7-4CF8-9958-0AE8E565D1D4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14_05_2025_OOP_1_Introdution", "14_05_2025_OOP_1_Introdution\14_05_2025_OOP_1_Introdution.vcxproj", "{84761AAC-24B1-410D-8C2E-BA6753D76F1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -531,6 +533,18 @@ Global
 		{FB4362E1-FBF7-4CF8-9958-0AE8E565D1D4}.Release|x64.Build.0 = Release|x64
 		{FB4362E1-FBF7-4CF8-9958-0AE8E565D1D4}.Release|x86.ActiveCfg = Release|Win32
 		{FB4362E1-FBF7-4CF8-9958-0AE8E565D1D4}.Release|x86.Build.0 = Release|Win32
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Debug|Any CPU.Build.0 = Debug|x64
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Debug|x64.ActiveCfg = Debug|x64
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Debug|x64.Build.0 = Debug|x64
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Debug|x86.ActiveCfg = Debug|Win32
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Debug|x86.Build.0 = Debug|Win32
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Release|Any CPU.ActiveCfg = Release|x64
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Release|Any CPU.Build.0 = Release|x64
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Release|x64.ActiveCfg = Release|x64
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Release|x64.Build.0 = Release|x64
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Release|x86.ActiveCfg = Release|Win32
+		{84761AAC-24B1-410D-8C2E-BA6753D76F1F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
