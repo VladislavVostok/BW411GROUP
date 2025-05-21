@@ -14,9 +14,9 @@ private:
 
 public:
 	Dog(const string&, int, const string&);
-	void makeSound() const;
+	void makeSound() const override;
 	void  fetch();
 	void displayInfo();
-	~Dog();
+	~Dog() override;
 };
 

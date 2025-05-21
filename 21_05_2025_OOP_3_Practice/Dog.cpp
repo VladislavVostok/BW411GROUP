@@ -7,7 +7,7 @@ using namespace std;
 Dog::Dog(const string& name, int age, const string& breed) : Animal(name, age), breed(breed) {}
 
 // Переопределение методов родителя (Полиморфизм)
-void Dog::makeSound() const override {
+void Dog::makeSound() const {
     
     cout << name << " сказал: Гав! Гав" << endl;
 }
@@ -21,6 +21,6 @@ void Dog::displayInfo() {
     cout << ", Остальные данные: " << breed << " (Собака)" << endl;
 }
 
-Dog::~Dog() override {
+Dog::~Dog() {
     cout << "Собака была уничтожена " << name << endl;
 }

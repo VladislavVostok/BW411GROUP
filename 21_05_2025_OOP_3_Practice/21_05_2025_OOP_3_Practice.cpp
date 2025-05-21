@@ -2,6 +2,9 @@
 #include <string>
 #include <vector>
 
+#include "Animal.h"
+#include "Dog.h"
+
 
 using namespace std;
 
@@ -77,7 +80,7 @@ private:
 
 public:
 
-    Cat() : Animal() {}    // Конструктор по умолчанию, пустой конструктор
+    //Cat() : Animal() {}    // Конструктор по умолчанию, пустой конструктор
     Cat(const string& name, int age, bool isCat) : Animal(name, age), isCat(isCat) {}
 
     // Переопределение методов родителя (Полиморфизм)
@@ -122,8 +125,6 @@ int main()
 
     Dog dog("Rex", 3, "Labrador");
     Cat cat("Meower", 5, true);
-
-    Cat* cat = new Cat();
 
 
     cout << "Имя собаки: " << dog.getName() << endl;
