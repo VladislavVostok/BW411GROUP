@@ -242,6 +242,7 @@ public:
 	Point(double x, double y, double z) : x(x), y(y), z(z) {}
 	Point(double val): Point(val,val,val){}
 	Point() {}
+	Point(const Point& point) : x(point.x), y(point.y), z(point.z) {}
 
 
 	inline double getX() const { return x; }
@@ -286,7 +287,10 @@ int main() {
 	//p1.output();
 	//p1.saveToFile("point.txt");
 
-	Point p2(1.5, 2.5, 3.5);
+	Point p2{ 1.5, 2.5, 3.5 };
+
+
+	Point p3_hidden_construct{ p2 };
 	//p2.loadFromFile("point.txt");
 	//p2.output();
 
