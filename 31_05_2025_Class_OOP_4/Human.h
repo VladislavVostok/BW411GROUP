@@ -44,28 +44,30 @@ private:
 	static int count;
 
 public:
-	Human(int, const char*, const char*, const char*, const Date&) {}
-	Human() {}
-	Human(const Human&) {}
-	~Human(){}
+	Human(int, const char*, const char*, const char*, const Date&);
+	Human();
+	Human(const Human&);
+	~Human();
 
-	static int getCount() {}
+	static int getCount();
 
-	int getId() const {}
-	const char* getlastName() const {}
-	const char* getfirstName() const {}
-	const char* getmiddleName() const {}
-	Date& getbirthDate() const {}
+	int getId() const;
+	const char* getlastName() const;
+	const char* getfirstName() const;
+	const char* getmiddleName() const;
+	Date getbirthDate() const;
 
-	void setId() const {}
-	void setlastName() const {}
-	void setfirstName() const {}
-	void setmiddleName() const {}
-	void setbirthDate() const {}
+	void setId(int);
+	void setlastName(const char*);
+	void setfirstName(const char*);
+	void setmiddleName(const char*);
+	void setbirthDate(const Date&);
 
 
-	void print() const {}
+	void print() const;
 
 };
+
+
 
 #endif // DEBUG
