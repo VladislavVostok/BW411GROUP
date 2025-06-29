@@ -43,6 +43,15 @@ int IntegerQueue::Dequeue() {
 	return value;
 }
 
+int IntegerQueue::Peek() const{
+
+	if (IsEmpty()) {
+		throw std::underflow_error("Очередь пуста!");
+	}
+
+	return data[front];
+}
+
 void IntegerQueue::Show() const {
 	if (IsEmpty()) {
 		cout << "Очередь пуста!" << endl;
