@@ -1,30 +1,36 @@
 #pragma once
-#include "IntegerQueue.h"
+#include "BaseQueue.h"
+#include <iostream>
 #include <stdexcept>
+#include <vector>
 
-class PriorityQueue : public IntegerQueue
+using namespace std;
+
+class PriorityQueue : public BaseQueue
 {
 
 private:
-	struct PriorityItem {
+	struct Item {
 		int value;
 		int priority;
-
-		PriorityItem(int v = 0, int p = 0) : value(v), priority(p) {}
-
-		bool operator<(const PriorityItem& other) const {
+		bool operator<(const Item& other) const {
 
 			return priority < other.priority;
 		}
 	};
 		
-	PriorityItem* priorityData;
+	vector<Item> heap;
+
+	void heapifyUp(int);
+	void heapifyDown(int);
+
+
+	
 
 public:
 	PriorityQueue(int);
 	void Enqueue(int) override;
-	void InsertWithPriority(int, int);
+	void EnqueueWithPriority(int, int);
 	int Dequeue() override;
-	int Peek() const override;
-	void Show()const override;
+	void Show() const override;
 };

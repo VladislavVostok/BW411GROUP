@@ -129,13 +129,17 @@
   <ItemGroup>
     <ClCompile Include="22_06_2025_FC_OPP.cpp" />
     <ClCompile Include="Array.cpp" />
+    <ClCompile Include="BaseQueue.cpp" />
     <ClCompile Include="CharStack.cpp" />
     <ClCompile Include="IntegerQueue.cpp" />
+    <ClCompile Include="PriorityQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
+    <ClInclude Include="BaseQueue.h" />
     <ClInclude Include="CharStack.h" />
     <ClInclude Include="IntegerQueue.h" />
+    <ClInclude Include="PriorityQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

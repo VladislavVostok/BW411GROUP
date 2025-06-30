@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include "CharStack.h"
 #include "IntegerQueue.h"
+#include "PriorityQueue.h"
 
 //template <typename T>
 //double average(T arr[], int size) {
@@ -62,30 +63,52 @@ int main()
     //
 
 
-    IntegerQueue queue(5);
+    //IntegerQueue queue(5);
 
-    queue.Enqueue(10);
-    queue.Enqueue(20);
-    queue.Enqueue(30);
+    //queue.Enqueue(10);
+    //queue.Enqueue(20);
+    //queue.Enqueue(30);
 
-    std::cout << "Содержание очереди: " << std::endl;
-    queue.Show();
+    //std::cout << "Содержание очереди: " << std::endl;
+    //queue.Show();
 
-    std::cout << "Извлечен: " << queue.Dequeue() << std::endl;
-    std::cout << "Извлечен: " << queue.Dequeue() << std::endl;
-
-
-    queue.Enqueue(40);
-    queue.Enqueue(50);
-    queue.Enqueue(60);
+    //std::cout << "Извлечен: " << queue.Dequeue() << std::endl;
+    //std::cout << "Извлечен: " << queue.Dequeue() << std::endl;
 
 
-    std::cout << "Содержание очереди: " << std::endl;
-    queue.Show();
+    //queue.Enqueue(40);
+    //queue.Enqueue(50);
+    //queue.Enqueue(60);
 
-    queue.Enqueue(70);
-    queue.Enqueue(80);
 
-    std::cout << "Содержание очереди: " << std::endl;
-    queue.Show();
+    //std::cout << "Содержание очереди: " << std::endl;
+    //queue.Show();
+
+    //queue.Enqueue(70);
+    ////queue.Enqueue(80);
+
+    //std::cout << "Содержание очереди: " << std::endl;
+    //queue.Show();
+
+    PriorityQueue pq(5);
+
+    pq.EnqueueWithPriority(100, 1);
+    pq.Show();
+    pq.EnqueueWithPriority(200, 3);
+    pq.Show();
+    pq.Enqueue(300);
+    pq.Show();
+    pq.EnqueueWithPriority(400, 5);
+    pq.Show();
+    pq.EnqueueWithPriority(500, 4);
+    pq.Show();
+
+    cout << "Содержание очереди с приоритетом: " << endl;
+    pq.Show();
+
+    while (!pq.IsEmpty()) {
+        cout << "Вытащен: " << pq.Dequeue() << endl;
+    }
+
+    return 0;
 }

@@ -3,21 +3,9 @@
 
 using namespace std;
 
-IntegerQueue::IntegerQueue(int size) :
-	capacity(size), front(0), end(-1), count(0) {
-	data = new int[capacity];
-}
-
-IntegerQueue::~IntegerQueue() {
-	delete[] data;
-}
-
-bool IntegerQueue::IsEmpty() const {
-	return count == 0;
-}
-
-bool IntegerQueue::IsFull() const {
-	return count == capacity;
+IntegerQueue::IntegerQueue(int size) : BaseQueue(size),
+	front(0), end(-1){
+	data.resize(capacity);
 }
 
 void IntegerQueue::Enqueue(int value) {
@@ -43,14 +31,6 @@ int IntegerQueue::Dequeue() {
 	return value;
 }
 
-int IntegerQueue::Peek() const{
-
-	if (IsEmpty()) {
-		throw std::underflow_error("Очередь пуста!");
-	}
-
-	return data[front];
-}
 
 void IntegerQueue::Show() const {
 	if (IsEmpty()) {
