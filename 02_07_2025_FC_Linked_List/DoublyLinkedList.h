@@ -40,6 +40,8 @@ public:
 
 	void Show() const;
 
+	size_t Size() const;
+	bool isEmpty() const;
 
 };
 
@@ -63,7 +65,8 @@ void DoublyLinkedList<T>::AddToHead(const T& data) {
 		head = tail = newNode;
 	}
 	else {
-		newNode->prev = head;
+		newNode->next = head;
+		head->prev = newNode;
 		head = newNode;
 	}
 	size++;
@@ -77,6 +80,7 @@ void DoublyLinkedList<T>::AddToTail(const T& data) {
 		head = tail = newNode;
 	}
 	else {
+		newNode->prev = tail;
 		tail->next = newNode;
 		tail = newNode;
 	}
@@ -84,7 +88,7 @@ void DoublyLinkedList<T>::AddToTail(const T& data) {
 }
 
 
-// O(n)
+// O(n/2)
 template <typename T>
 void DoublyLinkedList<T>::InsertAt(size_t position, const T& data) {
 	if (position > size) {
@@ -101,16 +105,28 @@ void DoublyLinkedList<T>::InsertAt(size_t position, const T& data) {
 		return;
 	}
 
-
-	Node* newNode = new Node(data);
-	Node* current = head;
-
-	for (size_t i = 0; i < position - 1; ++i) {
-		current = current->next;
+	Node* current;
+	if (position < size / 2) {
+		current = head;
+		for (size_t i = 0; i < position; ++i) {
+			current = current->next;
+		}
+	}
+	else {
+		current = tail;
+		for (size_t i = size - 1; i > position; --i) {
+			current = current->prev;
+		}
 	}
 
-	newNode->next = current->next;
+	Node* newNode = new Node(data);
+
+	newNode->prev = current->prev;
+
+	newNode->next = current;
 	current->next = newNode;
+	current->prev->next = newNode;
+	current->prev = newNode;
 	size++;
 }
 
@@ -124,12 +140,17 @@ void DoublyLinkedList<T>::DeleteFromHead() {
 
 	Node* temp = head;
 	head = head->next;
+
+	if (head) {
+		head->prev = nullptr;
+	}
+	else {
+		tail = nullptr;
+	}
+
 	delete temp;
 	size--;
 
-	if (!head) {
-		tail = nullptr;
-	}
 }
 
 // O(1)
@@ -140,21 +161,16 @@ void DoublyLinkedList<T>::DeleteFromTail() {
 		throw runtime_error("Список пуст!");
 	}
 
-	if (head == tail) {
-		delete tail;
-		head = tail = nullptr;
-		size--;
-		return;
+	Node* temp = tail;
+	tail = tail->prev;
+	if (tail) {
+		tail->next = nullptr;
+	}
+	else {
+		head = nullptr;
 	}
 
-	Node* current = head;
-	while (current->next != tail) {
-		current = current->next;
-	}
-
-	delete tail;
-	tail = current;
-	tail->next = nullptr;
+	delete temp;
 	size--;
 }
 
@@ -177,28 +193,37 @@ void DoublyLinkedList<T>::DeleteAt(size_t position) {
 		return;
 	}
 
-	Node* current = head;
-	for (size_t i = 0; i < position - 1; ++i) {
-		current = current->next;
+	Node* current;
+	if(position < size / 2){
+		current = head;
+		for (size_t i = 0; i < position; ++i) {
+			current = current->next;
+		}
+	}
+	else {
+		current = tail;
+		for (size_t i = size - 1; i > position; --i) {
+			current = current->prev;
+		}
 	}
 
-	Node* temp = current->next;
-	current->next = temp->next;
-	delete temp;
+	current->prev->next = current->next;
+	current->next->prev = current->next;
+	delete current;
 	size--;
 }
 
 //O(n)
 template <typename T>
 void DoublyLinkedList<T>::DeleteAll() {
+
 	while (head) {
 		Node* temp = head;
 		head = head->next;
 		delete temp;
+		size--;
 	}
-
 	tail = nullptr;
-	size = 0;
 }
 
 
@@ -244,20 +269,20 @@ void DoublyLinkedList<T>::Reverse() {
 		return;
 	}
 
-	Node* prev = nullptr;
 	Node* current = head;
-	Node* next = nullptr;
-
-	tail = head;
+	Node* temp = nullptr;
 
 	while (current) {
-		next = current->next;
-		current->next = prev;
-		prev = current;
-		current = next;
+		temp = current->prev;
+		current->prev = current->next;
+		current->next = temp;
+
+		current = current->prev;
 	}
 
-	head = prev;
+	temp = head;
+	head = tail;
+	tail = temp;
 }
 
 // O(n)
@@ -271,4 +296,15 @@ void DoublyLinkedList<T>::Show() const {
 	}
 
 	cout << endl;
+}
+
+// O(1)
+template <typename T>
+size_t DoublyLinkedList<T>::Size() const {
+	return size;
+}
+
+template <typename T>
+bool DoublyLinkedList<T>::isEmpty() const {
+	return size == 0;
 }
