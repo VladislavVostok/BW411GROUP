@@ -3,6 +3,11 @@
 
 BinaryTreeDictionary::BinaryTreeDictionary() : root(nullptr) {}
 
+BinaryTreeDictionary::~BinaryTreeDictionary() {
+	clearTree(root);
+}
+
+
 DictionaryNode* BinaryTreeDictionary::insertNode(DictionaryNode* node, string eng, string rus) {
 	if (node == nullptr) {
 		return new DictionaryNode(eng, rus);
@@ -173,6 +178,11 @@ void BinaryTreeDictionary::displayTopUnpopular() {
 			<< "(Обращений: " << nodes[i]->access_count << ")" << endl;
 	}
 
-
 }
 
+void BinaryTreeDictionary::clearTree(DictionaryNode* node) {
+	if (node == nullptr) return;
+	clearTree(node->left);
+	clearTree(node->right);
+	delete node;
+}

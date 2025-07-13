@@ -24,12 +24,18 @@
     <ClCompile Include="BinaryTreeDictionary.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="BusPark.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DictionaryNode.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="BinaryTreeDictionary.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="BusPark.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

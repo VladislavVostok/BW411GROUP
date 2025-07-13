@@ -18,9 +18,11 @@ private:
 	DictionaryNode* minValueNode(DictionaryNode*);
 	void inorderTraversal(DictionaryNode*, vector<DictionaryNode*>&);
 	void displayTreeHepler(DictionaryNode*, int, string);
+	void clearTree(DictionaryNode*);
 
 public:
 	BinaryTreeDictionary();
+	~BinaryTreeDictionary();
 	void updateTranslation(string, string);
 	void findAndDisplay(string);
 	void addWord(string, string);
@@ -28,4 +30,5 @@ public:
 	void displayTopPopular();
 	void displayTopUnpopular();
 	void displayTreeWrap();
+
 };
