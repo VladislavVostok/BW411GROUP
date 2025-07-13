@@ -133,6 +133,28 @@ void BinaryTreeDictionary::displayTopPopular() {
 
 }
 
+void BinaryTreeDictionary::displayTreeHepler(DictionaryNode* node, int depth, string label) {
+	if (node == nullptr) return;
+
+	displayTreeHepler(node->right, depth + 1, "right");
+
+	for (int i = 0; i < depth; i++) {
+		cout << "           ";
+	}
+
+	cout << node->english << " (" << node->access_count << ")" << ((label == "right") ? "r" : "l") << endl;
+
+	displayTreeHepler(node->left, depth + 1, "left");
+}
+
+void BinaryTreeDictionary::displayTreeWrap() {
+	if (root == nullptr) {
+		cout << "Дерево пустое." << endl;
+		return;
+	}
+	displayTreeHepler(root, 0, "rt");
+}
+
 void BinaryTreeDictionary::displayTopUnpopular() {
 	vector<DictionaryNode*> nodes;
 	inorderTraversal(root, nodes);
