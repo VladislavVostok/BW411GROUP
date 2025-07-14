@@ -129,10 +129,12 @@
   <ItemGroup>
     <ClCompile Include="09_07_2025_PracticeBinaryTree.cpp" />
     <ClCompile Include="BinaryTreeDictionary.cpp" />
+    <ClCompile Include="BusPark.cpp" />
     <ClCompile Include="DictionaryNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTreeDictionary.h" />
+    <ClInclude Include="BusPark.h" />
     <ClInclude Include="DictionaryNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

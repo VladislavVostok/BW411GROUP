@@ -3,6 +3,11 @@
 
 BinaryTreeDictionary::BinaryTreeDictionary() : root(nullptr) {}
 
+BinaryTreeDictionary::~BinaryTreeDictionary() {
+	clearTree(root);
+}
+
+
 DictionaryNode* BinaryTreeDictionary::insertNode(DictionaryNode* node, string eng, string rus) {
 	if (node == nullptr) {
 		return new DictionaryNode(eng, rus);
@@ -133,6 +138,28 @@ void BinaryTreeDictionary::displayTopPopular() {
 
 }
 
+void BinaryTreeDictionary::displayTreeHepler(DictionaryNode* node, int depth, string label) {
+	if (node == nullptr) return;
+
+	displayTreeHepler(node->right, depth + 1, "right");
+
+	for (int i = 0; i < depth; i++) {
+		cout << "           ";
+	}
+
+	cout << node->english << " (" << node->access_count << ")" << ((label == "right") ? "r" : "l") << endl;
+
+	displayTreeHepler(node->left, depth + 1, "left");
+}
+
+void BinaryTreeDictionary::displayTreeWrap() {
+	if (root == nullptr) {
+		cout << "Дерево пустое." << endl;
+		return;
+	}
+	displayTreeHepler(root, 0, "rt");
+}
+
 void BinaryTreeDictionary::displayTopUnpopular() {
 	vector<DictionaryNode*> nodes;
 	inorderTraversal(root, nodes);
@@ -151,6 +178,11 @@ void BinaryTreeDictionary::displayTopUnpopular() {
 			<< "(Обращений: " << nodes[i]->access_count << ")" << endl;
 	}
 
-
 }
 
+void BinaryTreeDictionary::clearTree(DictionaryNode* node) {
+	if (node == nullptr) return;
+	clearTree(node->left);
+	clearTree(node->right);
+	delete node;
+}
