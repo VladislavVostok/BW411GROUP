@@ -5,7 +5,7 @@ void displayMenu();
 
 int main()
 {
-	setlocale(LC_ALL, | "");
+	setlocale(LC_ALL, "");
 
 	BinaryTreeDictionary dictionary;
 	int choice;
