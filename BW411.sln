@@ -101,6 +101,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_07_2025_FC_Linked_List",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "09_07_2025_PracticeBinaryTree", "09_07_2025_PracticeBinaryTree\09_07_2025_PracticeBinaryTree.vcxproj", "{CF5B59C8-BC4D-435D-AE34-BC487FADCA62}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14_07_2025_LC_InnerClases_Aggrigation_Inheritance", "14_07_2025_LC_InnerClases_Aggrigation_Inheritance\14_07_2025_LC_InnerClases_Aggrigation_Inheritance.vcxproj", "{DC934C01-6BEA-4277-90C3-1CB674170864}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -699,6 +701,18 @@ Global
 		{CF5B59C8-BC4D-435D-AE34-BC487FADCA62}.Release|x64.Build.0 = Release|x64
 		{CF5B59C8-BC4D-435D-AE34-BC487FADCA62}.Release|x86.ActiveCfg = Release|Win32
 		{CF5B59C8-BC4D-435D-AE34-BC487FADCA62}.Release|x86.Build.0 = Release|Win32
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Debug|Any CPU.Build.0 = Debug|x64
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Debug|x64.ActiveCfg = Debug|x64
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Debug|x64.Build.0 = Debug|x64
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Debug|x86.ActiveCfg = Debug|Win32
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Debug|x86.Build.0 = Debug|Win32
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Release|Any CPU.ActiveCfg = Release|x64
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Release|Any CPU.Build.0 = Release|x64
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Release|x64.ActiveCfg = Release|x64
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Release|x64.Build.0 = Release|x64
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Release|x86.ActiveCfg = Release|Win32
+		{DC934C01-6BEA-4277-90C3-1CB674170864}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

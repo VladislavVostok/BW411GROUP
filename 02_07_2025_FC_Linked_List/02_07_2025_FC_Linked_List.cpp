@@ -1,10 +1,10 @@
 ﻿#include <iostream>
 //#include "LinkedList.h"
 #include "DoublyLinkedList.h"
+#include "LinkedList.h"
 
 int main()
 {
-
     //LinkedList<int> list;
 
     //list.AddToTail(10);

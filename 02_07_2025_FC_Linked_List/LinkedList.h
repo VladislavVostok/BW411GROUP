@@ -8,7 +8,8 @@ template <typename T>
 class LinkedList
 {
 private:
-	struct Node {
+
+	class Node {
 		T data;
 		Node* next;
 		Node(const T& data) : data(data), next(nullptr){}
